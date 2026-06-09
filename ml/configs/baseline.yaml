@@ -1,0 +1,17 @@
+# Sentinel Phase 1 — baseline run config.
+# Values are placeholders; populated/tuned in later steps.
+
+seed: 42
+
+data:
+  dataset: Base          # which BAF variant (decided in Step 2)
+  target: fraud_bool
+
+split:
+  strategy: temporal     # earlier months train, later months test
+  # month boundaries set after EDA (Step 3-4)
+
+# Dollar cost matrix for threshold selection (Step 8). Tunable.
+cost:
+  false_negative: null   # cost of missing a fraud
+  false_positive: null   # cost of blocking a legit customer

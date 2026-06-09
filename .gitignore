@@ -1,0 +1,26 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+
+# Data — never commit raw or processed datasets
+data/raw/
+data/processed/
+*.csv
+*.parquet
+
+# Model artifacts
+models/
+*.pkl
+*.joblib
+*.txt.model
+
+# Personal
+personal_notes.txt
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/

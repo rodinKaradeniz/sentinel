@@ -1,0 +1,13 @@
+# Sentinel — Phase 1 (ML baseline + cost-sensitive evaluation)
+# Pinned to versions confirmed at install time on Python 3.13.
+numpy==2.1.3
+pandas==2.2.3
+scikit-learn==1.5.2
+lightgbm==4.5.0
+matplotlib==3.9.2
+pyyaml==6.0.2
+joblib==1.4.2
+jupyter==1.1.1
+
+# Dataset acquisition (used only if Kaggle-API route is chosen in Step 2)
+kaggle==1.6.17
