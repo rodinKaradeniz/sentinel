@@ -8,6 +8,8 @@ matplotlib==3.9.2
 pyyaml==6.0.2
 joblib==1.4.2
 jupyter==1.1.1
+pyarrow==19.0.1
 
-# Dataset acquisition (used only if Kaggle-API route is chosen in Step 2)
+# Dataset acquisition (Kaggle API route, Step 2)
 kaggle==1.6.17
+python-dotenv==1.0.1

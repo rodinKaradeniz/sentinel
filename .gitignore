@@ -17,8 +17,13 @@ models/
 *.joblib
 *.txt.model
 
+# Secrets
+.env
+*.env
+
 # Personal
-personal_notes.txt
+concepts.txt
+questions.txt
 
 # OS / editor
 .DS_Store
