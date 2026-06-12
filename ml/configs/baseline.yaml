@@ -1,17 +1,27 @@
 # Sentinel Phase 1 — baseline run config.
-# Values are placeholders; populated/tuned in later steps.
+# Documents the settings used; the code currently reads constants from ml/src/config.py.
+# (A later phase can wire this YAML into the scripts via argparse.)
 
 seed: 42
 
 data:
-  dataset: Base          # which BAF variant (decided in Step 2)
+  dataset: Base          # BAF variant used in Phase 1
   target: fraud_bool
 
 split:
   strategy: temporal     # earlier months train, later months test
-  # month boundaries set after EDA (Step 3-4)
+  train_months: [0, 1, 2, 3, 4, 5]
+  val_months: [6]
+  test_months: [7]
 
-# Dollar cost matrix for threshold selection (Step 8). Tunable.
+model:
+  type: lightgbm
+  class_weight: balanced
+  n_estimators: 400
+  learning_rate: 0.05
+  num_leaves: 31
+
+# Dollar cost matrix for threshold selection (Step 8). Tunable; ratio drives the threshold.
 cost:
-  false_negative: null   # cost of missing a fraud
-  false_positive: null   # cost of blocking a legit customer
+  false_negative: 500    # cost of approving a fraud
+  false_positive: 50     # cost of blocking a legit applicant

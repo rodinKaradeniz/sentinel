@@ -17,3 +17,8 @@ SEED = 42
 
 # The BAF target column.
 TARGET = "fraud_bool"
+
+# Cost matrix for threshold selection (Step 8). Dollars. Tunable — the FN:FP ratio
+# (here 10:1) is what drives the optimal threshold.
+COST_FN = 500.0  # approve a fraud: downstream loss / chargebacks
+COST_FP = 50.0   # block a legit applicant: review labor + friction
