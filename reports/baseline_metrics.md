@@ -40,6 +40,12 @@ Precision: 0.218    Recall: 0.406    F1: 0.284
 Confusion: TP=580  FP=2081  FN=848  TN=93334
 ```
 
+> **On the no-skill baseline:** a random model's PR-AUC equals the fraud prevalence *of the
+> evaluation set*. We evaluate on the test month (7), whose fraud rate is 1.475%, so the
+> floor is 0.0147 and 0.21 is ~14× it. The whole-dataset rate (~1.1%) and the validation
+> month (1.34%, used in [model_comparison.md](model_comparison.md)) are different
+> denominators — don't pair them with the test PR-AUC.
+
 ## Cost outcome (test / month 7)
 
 | Policy | Threshold | Total cost | Note |

@@ -11,10 +11,13 @@ because later phases (MLflow, FastAPI, monitoring, a Go control plane, Kubernete
 
 ## Current status  (volatile — overwrite as the project moves)
 - **Phase 1 (ML baseline + cost-sensitive evaluation) is complete.** LightGBM won
-  (test PR-AUC ≈ 0.21, ~14× the no-skill baseline of ~0.015). The differentiator is the
+  (test PR-AUC ≈ 0.21, ~14× the no-skill floor of ~0.0147). The differentiator is the
   cost-sensitive threshold: pick the cut that minimizes expected dollar cost, chosen on val
   and evaluated on the sealed test month. See `reports/phase1_summary.md`,
   `reports/baseline_metrics.md`, `reports/cost_sensitive_analysis.md`.
+  - **PR-AUC floor = the fraud prevalence of the set you measured on.** We report on the
+    test month (7), prevalence 1.475% → floor 0.0147, lift ~14×. Don't pair the test PR-AUC
+    with the whole-dataset 1.1% (0.011) — wrong denominator; the val month (6) is 1.34%.
 - **Cost matrix = a chosen modeling assumption, not ground truth:** FN=$500, FP=$50 (10:1).
   Defensible for account-opening fraud but not empirical — revisit / justify if challenged.
   Lives in `ml/src/config.py`.

@@ -9,8 +9,10 @@ the sealed **test (month 7)** set in [baseline_metrics.md](baseline_metrics.md).
 Fraud rate is ~1.1% (≈89:1). Accuracy is meaningless (predict "never fraud" → 98.9% accurate,
 catches nothing). ROC-AUC is inflated by the 89× more numerous legit cases in its
 false-positive-rate denominator. **PR-AUC** only involves frauds and flagged cases, so it
-stays honest about the thing we care about. Random-model PR-AUC ≈ base rate (0.0134 on
-month 6), which is the reference for "lift".
+stays honest about the thing we care about. Random-model PR-AUC ≈ base rate, evaluated on
+this set: **month 6 = 0.0134**, which is the reference for "lift" *here*. (The final test
+report uses month 7, prevalence 0.0147 — a different floor for a different set; see
+[baseline_metrics.md](baseline_metrics.md).)
 
 ## Results (validation / month 6)
 
